@@ -78,7 +78,7 @@
         \Rightarrow &\big( u_{i+1,j} - 2u_{i,j} + u_{i-1,j} \big) + \big( u_{i,j+1} - 2u_{i,j} + u_{i,j-1} \big) = \rho(x,y) h^{2} \\
         \Rightarrow&\ 4_{i,j} - u_{i-1,j} - u_{i+1,j} - u_{i,j-1} - u_{i,j+1} = \rho(x,y) h^{2} \tag{I}\label{A}
     \end{align*}
-    In the wake of knowing the general form of the solution, we apply the boundary conditions; here boundaries are all zeros (i.e., $u_{0,j},\ u_{i,0},\ u_{4,j},\ \text{and}\ u_{i,4} = 0$). Exploiting all $i$ and $j$, we can get LHS of eq.(\ref{A}) in the matrix form $\mathbf{A}$ and RHS in the vector form $\mathbf{b}$:
+    In the wake of knowing the general form of the solution, we apply the boundary conditions; here boundaries are all zeros (i.e., $u_{0,j},\ u_{i,0},\ u_{4,j},\ \text{and}\ u_{i,4} = 0$). Exploiting all $i$ and $j$, we can get LHS of eq.(\ref{A}) in the matrix form $\mathbf{A}$ and RHS in the vector form $\mathbf{b}$ with source term $g_{ij}$ which represents the splitting of the source function $\rho(x,y)$:
     \[
         \mathbf{A} = 
         \begin{bmatrix}
