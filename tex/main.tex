@@ -168,7 +168,7 @@
         \caption{These figures are the solution of the potential $u$. The left is the $4 \times 4$ grid; the right is the $3 \times 3$ grid. Both of them are with the source $\rho_{22} = 1$ and the others are zeros.}\label{q1}
     \end{figure}
 
-    \subsection{2D Poisson's equation with a given source with periodic boindary}\label{eq}
+    \subsection{2D Poisson's equation with a given source with periodic boundary}\label{eq}
     In this subsection (also the below's subsections), we exploit the finite difference method with the sparse matrix to solve the equation:
     \[
         \rho(x,y) = e^{-{5 \over 4} r^{2}_{1}} + {3 \over 2} \times e^{-r^{2}_{2}}
@@ -189,22 +189,23 @@
         \centering
         \includegraphics[width = 0.45\textwidth]{./fig/3.1.png}
         \includegraphics[width = 0.45\textwidth]{./fig/3.2.png}
-        \caption{These two figures have the log-scale y-axis; normal scale x-axis so as to show errors as functions of iterations. The left is all of the methods are converged; the right scheme is the one diverge situation ($w = 2.0$, purple line).}\label{q3}
+        \caption{These two figures have the log-scale y-axis; normal scale x-axis so as to show errors as functions of iterations. Here, we use the error defined by $\sqrt{\sum (u[i,j]-u_{old}[i,j])^{2}} / (\text{number of cells})$.\\
+        The left is all the methods are converged; the right scheme is the one diverge situation ($w = 2.0$, purple line).}\label{q3}
     \end{figure}
 
     It is manifestly that the Jacobi method is the slowest one and then is the Gauss-Seidel method, and the fastest is the SOR method. In this scenario, although SOR is the fastest when $w = 1.5$, it will diverge with $w = 2.0$ (Figure\ref{q3}-right)! The fastest (SOR with $w = 1.5$) is approximately 4.5 times faster than the slowest (Jacobi) as the error tolerance is $\sim 10^{-6}$.
 
-    \subsection{Resolution vs time with different methodologyies}
+    \subsection{Resolution vs time with different methodologies}
     In this subsection, we will discuss different grid sizes; that is, different resolutions ($32 \times 32$, $64 \times 64$, and $128 \times 128$) with the time. Additionally, we exploit the methods of the sparse matrix, Jacobi, Gauss-Seidel, and SOR with $w = 1.2,\ 1.5$ as well. Setting tolerance $\epsilon = 10^{-7}$, the resolutions vs time show in Figure\ref{q4}.
 
     \begin{figure}[H]
         \centering
         \includegraphics[width = 0.9\textwidth]{./fig/4.png}
-        \caption{This figure shows different algorithms to solve Poisson's equation in (subsection \ref{eq}). The tendency of these methods, excluding sparse matrix, require more time to iterate to the tolerance ($\epsilon = 10^{-7}$). The outcomes are the same consequent analysis in the aforementioned subsections; i.e., Jacobi is the slowest, Gauss-Seidel is the middle and the SOR is the fastest (besides, $w = 1.5$ is more efficient than $w = 1.3$). On the other hand, the behavior of the sparse matrix method does not act the same as others. It takes the least time among others when the resolution is $64 \times 64$. Likewise, in low resolution ($32 \times 32$), the sparse matrix method is only faster than Jacobi, but in the largest resolution ($128 \times 128$), it drills faster than Jacobi and also the Gauss-Seidel. Here, we can briefly sum up, if the size (resolution) is in ``some proper range'', such as $64 \times 64$, we can adopt \texttt{scipy}'s sparse solver! It is more well organized than others.}\label{q4}
+        \caption{This figure shows different algorithms to solve Poisson's equation in (subsection \ref{eq}). The tendency of these methods, excluding sparse matrix, require more time to iterate to the tolerance ($\epsilon = 10^{-7}$). The outcomes are the same consequent analysis in the aforementioned subsections; i.e., Jacobi is the slowest, Gauss-Seidel is the middle and the SOR is the fastest (besides, $w = 1.5$ is more efficient than $w = 1.3$). On the other hand, the behavior of the sparse matrix method does not act the same as others. It takes the least time among others when the resolution is $64 \times 64$. Likewise, in low resolution ($32 \times 32$), the sparse matrix method is only faster than Jacobi, but in the largest resolution ($128 \times 128$), it drills faster than Jacobi and also the Gauss-Seidel. Here, we can briefly sum up, if the size (resolution) is in ``some proper range'', such as $64 \times 64$, we can adopt \texttt{SciPy}'s sparse solver! It is more well organized than others.}\label{q4}
     \end{figure}
 
 \section{Codes}
-    All the codes are transferred from jupyterlab or python codes; hence, if you want to re-run them, please see the source code in the attached files or my GitHub repository:
+    All the codes are transferred from JupyterLab or python codes; hence, if you want to re-run them, please see the source code in the attached files or my GitHub repository:
 
     {\centerline{\ttfamily <https://github.com/gary20000915/Comphyslab-HW4.git>}}
 
